@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
-import { BadRequestError } from "../../error/bad-request-error";
+import { BadRequestError } from "../error/bad-request-error";
 import { validateResult } from "../middleware/validate-request";
 
 import { Password } from "../service/password";
