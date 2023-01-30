@@ -9,7 +9,7 @@ import { signinUserRouter } from "./routes/signin";
 import { signoutUserRouter } from "./routes/signout";
 import { signupUserRouter } from "./routes/signup";
 import { errorHandler } from "./middleware/error-handler";
-import { NotFoundError } from "../error/not-found-error";
+import { NotFoundError } from "./error/not-found-error";
 
 const app = express();
 app.set("truct proxy", true);
