@@ -8,8 +8,18 @@ build:
   # local:
   #   push:false
   artifacts: #all thing to build
+    # Auth
     - image: abdulbasitdev/auth
       context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "./src/**/*.ts"
+            dest: .
+    # Client
+    - image: abdulbasitdev/client
+      context: client
       docker:
         dockerfile: Dockerfile
       sync:
