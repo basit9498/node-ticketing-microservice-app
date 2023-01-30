@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { NotAuthorizeError } from "../../error/not-auth-error";
+import { NotAuthorizeError } from "../error/not-auth-error";
 
 export const requiredAuth = (
   req: Request,
