@@ -13,6 +13,7 @@ spec:
     - host: ticketing.dev #only for localmachine workig
       http:
         paths:
+          # Auth
           - path: /api/users/?(.*)
             pathType: Prefix
             backend:
@@ -22,3 +23,11 @@ spec:
                 name: auth-srv
                 port:
                   number: 5000
+          # Client
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: client-srv
+                port:
+                  number: 3000
