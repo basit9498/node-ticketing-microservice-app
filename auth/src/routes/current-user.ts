@@ -7,7 +7,7 @@ const router = express.Router();
 router.get(
   "/api/users/current-user",
   currentUser,
-  requiredAuth,
+  // requiredAuth,
   (req: Request, res: Response) => {
     // if (!req.session?.jwt) {
     //   return res.send({ currentUser: null });
