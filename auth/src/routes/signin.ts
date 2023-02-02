@@ -1,8 +1,9 @@
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
-import { BadRequestError } from "../error/bad-request-error";
-import { validateResult } from "../middleware/validate-request";
+// import { BadRequestError } from "../error/bad-request-error";
+// import { validateResult } from "../middleware/validate-request";
 
+import { BadRequestError, validateResult } from "@ab-ticketing/common";
 import { Password } from "../service/password";
 import jwt from "jsonwebtoken";
 import { User } from "../model/user";
