@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import request from "supertest";
 import { app } from "../../app";
 import { Ticket } from "../../model/tickets";
+import { natsWrapper } from "../../nats-wrapper";
 
 it("return 404 if the provied id is not  exit", async () => {
   const id = new mongoose.Types.ObjectId().toHexString();
@@ -99,4 +100,26 @@ it("update if provide a vaild data", async () => {
 
   expect(tiketResponse.body.title).toEqual("update");
   expect(tiketResponse.body.price).toEqual(40);
+});
+
+it("oublish event if update", async () => {
+  const cookie = global.signin();
+  const response = await request(app)
+    .post("/api/tickets")
+    .set("Cookie", cookie)
+    .send({
+      title: "asda",
+      price: 20,
+    });
+
+  await request(app)
+    .put(`/api/tickets/${response.body.id}`)
+    .set("Cookie", cookie)
+    .send({
+      title: "update",
+      price: 40,
+    })
+    .expect(200);
+
+  expect(natsWrapper.client.publish).toHaveBeenCalled();
 });
