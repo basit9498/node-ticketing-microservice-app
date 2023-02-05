@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import request from "supertest";
 import { app } from "../../app";
 import { Ticket } from "../../model/tickets";
-
+// jest.mock("../../nats-wrapper");
 const createTicket = () => {
   return request(app).post("/api/tickets").set("Cookie", global.signin()).send({
     title: "adasd",
