@@ -26,9 +26,19 @@ build:
         manual:
           - src: "./src/**/*.ts"
             dest: .
-      # Auth
+      # Tcikets
     - image: abdulbasitdev/tickets
       context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "./src/**/*.ts"
+            dest: .
+
+      # Tcikets
+    - image: abdulbasitdev/order
+      context: orders
       docker:
         dockerfile: Dockerfile
       sync:
