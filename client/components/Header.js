@@ -11,6 +11,8 @@ const Header = ({ currentUser }) => {
       label: "Sign In",
       href: "/auth/signin",
     },
+    currentUser && { label: "Sell Tickets", href: "/tickets/new" },
+    currentUser && { label: "My Orders", href: "/orders" },
     currentUser && {
       label: "Sign Out",
       href: "/auth/signout",
